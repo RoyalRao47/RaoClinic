@@ -27,9 +27,31 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "public/assets/css/bootstrap.min.css",
+              "public/assets/plugins/fontawesome/css/fontawesome.min.css",
+              "public/assets/plugins/fontawesome/css/all.min.css",
+              "public/assets/css/feather.css",
+              "public/assets/css/bootstrap-datetimepicker.min.css",
+              "public/assets/css/owl.carousel.min.css",
+              "public/assets/css/aos.css",
+              "public/assets/css/custom.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "public/assets/js/email-decode.min.js",
+              "public/assets/js/jquery-3.7.1.min.js",
+              "public/assets/js/bootstrap.bundle.min.js",
+              "public/assets/js/feather.min.js",
+              "public/assets/js/moment.min.js",
+              "public/assets/js/bootstrap-datetimepicker.min.js",
+              "public/assets/js/owl.carousel.min.js",
+              "public/assets/js/slick.js",
+              "public/assets/js/aos.js",
+              "public/assets/js/counter.js",
+              "public/assets/js/backToTop.js",
+              "public/assets/js/script.js",
+              "public/assets/js/rocket-loader.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -41,13 +63,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "4MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4MB",
+                  "maximumError": "5MB"
                 }
               ],
               "outputHashing": "all"
