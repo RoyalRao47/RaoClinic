@@ -1,0 +1,6 @@
+@RaoClinicAPI_HostAddress = http://localhost:5271
+
+GET {{RaoClinicAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
