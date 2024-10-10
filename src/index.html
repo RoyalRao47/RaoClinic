@@ -8,16 +8,16 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-   
-      <app-root></app-root>
-    
+    <app-root></app-root>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const svgElement = document.querySelector("svg");
-        if (svgElement) {
-          const length = svgElement.getTotalLength();
+        var path = document.querySelector("path");
+        if (path) {
+          var length = path.getTotalLength();
+          console.log(length);
         } else {
+          console.warn("Path element not found!");
         }
       });
     </script>

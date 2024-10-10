@@ -5,45 +5,91 @@
         <div class="account-content">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 col-lg-6 login-left">
-              <img
-                src="assets/img/login-banner.png"
-                class="img-fluid"
-                alt="Doccure Register"
-              />
+              <img src="assets/img/login-banner.png" class="img-fluid" alt="Register" />
             </div>
             <div class="col-md-12 col-lg-6 login-right">
               <div class="login-header">
                 <h3>
-                  Patient Register
-                  <a href="doctor-register.html">Are you a Doctor?</a>
+                  Register
                 </h3>
               </div>
 
-              <form
-                action="https://doccure.dreamstechnologies.com/html/template/patient-register-step1.html"
-              >
-                <div class="mb-3 form-focus">
-                  <input type="text" class="form-control floating" />
-                  <label class="focus-label">Name</label>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="col-lg-12 text-center mb-3">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="usertype" formControlName="usertype" id="doctor"
+                      value="doctor" checked="">
+                    <label class="form-check-label" for="doctor">
+                      Doctor
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="usertype" formControlName="usertype" id="patient"
+                      value="patient">
+                    <label class="form-check-label" for="patient">
+                      Patient
+                    </label>
+                  </div>
+                  <div *ngIf="registerForm.get('usertype')?.invalid && (userSubmitted || registerForm.get('usertype')?.touched)">
+                    <span class="text-danger">Required.</span>
+                  </div>
                 </div>
-                <div class="mb-3 form-focus">
-                  <input type="text" class="form-control floating" />
-                  <label class="focus-label">Mobile Number</label>
+                <div class="mb-3">
+                  <input type="text" placeholder="Full Name" formControlName="name" class="form-control floating"
+                    [ngClass]="{ 'is-invalid': userSubmitted && f['name'].errors }" />
+                  <div *ngIf="userSubmitted && f['name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['name'].errors['required']">First Name is required</div>
+                    <div *ngIf="f['name'].errors['minlength']">
+                      first Name must be at least 6 characters
+                    </div>
+                    <div *ngIf="f['name'].errors['maxlength']">
+                      first Name must not exceed 20 characters
+                    </div>
+                  </div>
                 </div>
-                <div class="mb-3 form-focus">
-                  <input type="password" class="form-control floating" />
-                  <label class="focus-label">Create Password</label>
+                <div class="mb-3">
+                  <input type="text" placeholder="Email Address" formControlName="email" class="form-control floating"
+                    [ngClass]="{ 'is-invalid': userSubmitted && f['email'].errors }" />
+                  <div *ngIf="userSubmitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                    <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="text" placeholder="Mobile Number" formControlName="mobile" class="form-control floating"
+                    [ngClass]="{ 'is-invalid': userSubmitted && f['mobile'].errors }" />
+                  <div *ngIf="userSubmitted && f['mobile'].errors" class="invalid-feedback">
+                    <div *ngIf="f['mobile'].errors['required']">Mobile Number is required</div>
+                    <div *ngIf="f['mobile'].errors['minlength']">Mobile Number is invalid</div>
+                    <div *ngIf="f['mobile'].errors['maxlength']">Mobile Number is invalid</div>
+                    <div *ngIf="f['mobile'].errors['pattern']">Mobile number is not 10 digit</div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="password" placeholder="Password" formControlName="password" class="form-control floating"
+                    [ngClass]="{ 'is-invalid': userSubmitted && f['password'].errors }" />
+                  <div *ngIf="userSubmitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']">Password is required</div>
+                    <div *ngIf="f['password'].errors['minlength']">
+                      Password must be at least 6 characters
+                    </div>
+                    <div *ngIf="f['password'].errors['maxlength']">
+                      Password must not exceed 20 characters
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="password" placeholder="Confirm Password" formControlName="confirmpassword"
+                    class="form-control floating"
+                    [ngClass]="{ 'is-invalid': userSubmitted && f['confirmpassword'].errors }" />
+                  <div *ngIf="userSubmitted && registerForm.errors?.['passwordsMismatch']" class="invalid-feedback">
+                    <span>Passwords must match.</span>
+                  </div>
                 </div>
                 <div class="text-end">
-                  <a class="forgot-link" href="login.html"
-                    >Already have an account?</a
-                  >
+                  <a class="forgot-link" href="#">Already have an account?</a>
                 </div>
-                <button
-                  class="btn btn-primary w-100 btn-lg login-btn"
-                  type="submit"
-                >
-                  Signup
+                <button class="btn btn-primary w-100 btn-lg login-btn" type="submit"> Signup
                 </button>
                 <div class="login-or">
                   <span class="or-line"></span>
@@ -51,14 +97,10 @@
                 </div>
                 <div class="row social-login">
                   <div class="col-6">
-                    <a href="#" class="btn btn-facebook w-100"
-                      ><i class="fab fa-facebook-f me-1"></i> Login</a
-                    >
+                    <a href="#" class="btn btn-facebook w-100"><i class="fab fa-facebook-f me-1"></i> Login</a>
                   </div>
                   <div class="col-6">
-                    <a href="#" class="btn btn-google w-100"
-                      ><i class="fab fa-google me-1"></i> Login</a
-                    >
+                    <a href="#" class="btn btn-google w-100"><i class="fab fa-google me-1"></i> Login</a>
                   </div>
                 </div>
               </form>
