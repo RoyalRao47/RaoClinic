@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RaoClinicAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25b93c4d883b73c4c4b454e74cb581db888cabdb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b5ebde55618edeaa81bf6e81e07ef544faca7ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("RaoClinicAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RaoClinicAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

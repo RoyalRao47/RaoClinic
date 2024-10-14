@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using RaoClinicAPI.Model;
+using RaoClinicAPI.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.Services.AddDbContext<DataContext>(options =>
-//     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
 
 builder.Services.AddHttpClient();
 
