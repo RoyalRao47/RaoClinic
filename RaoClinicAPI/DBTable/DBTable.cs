@@ -8,12 +8,12 @@ namespace RaoClinicAPI.DbTable
         public string Password { get; set; }
         public string MobileNo { get; set; }
         public int UserTypeId { get; set; } // 'Doctor' or 'Patient'
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
 
         // Navigation Properties
-        public DoctorProfile DoctorProfile { get; set; }
-        public PatientProfile PatientProfile { get; set; }
+        public DoctorProfile? DoctorProfile { get; set; }
+        public PatientProfile? PatientProfile { get; set; }
     }
     public class DoctorProfile
     {

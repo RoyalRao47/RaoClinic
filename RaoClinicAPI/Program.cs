@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using RaoClinicAPI.Model;
 using RaoClinicAPI.Database;
+using RaoClinicAPI.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddHttpClient();
 
-
+builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

@@ -3,10 +3,14 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { CreateUserService } from './app/Service/User/create-user.service';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes)  // Set up application-wide routing here
+    provideRouter(routes),
+    provideHttpClient(),  
+    CreateUserService,    
   ]
 });
 bootstrapApplication(AppComponent, appConfig)
