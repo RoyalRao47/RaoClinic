@@ -1,4 +1,7 @@
-<header class="header header-custom header-fixed header-one home-head-one" ngSkipHydration>
+<header
+  class="header header-custom header-fixed header-one home-head-one"
+  ngSkipHydration
+>
   <div class="container">
     <nav class="navbar navbar-expand-lg header-nav">
       <div class="navbar-header">
@@ -26,10 +29,12 @@
           <li class="has-submenu megamenu active">
             <a routerLink="/">Home </a>
           </li>
-          <li class="has-submenu">
-            <a href="javascript:void(0);">Doctors <i class="fas fa-chevron-down"></i></a>
+          <li *ngIf="this.userType == '1'" class="has-submenu">
+            <a href="javascript:void(0);"
+              >Doctors <i class="fas fa-chevron-down"></i
+            ></a>
             <ul class="submenu">
-              <li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+              <li><a routerLink="/doctor-dashboard">Doctor Dashboard</a></li>
               <li><a href="appointments.html">Appointments</a></li>
               <li><a href="available-timings.html">Available Timing</a></li>
               <li><a href="my-patients.html">Patients List</a></li>
@@ -51,10 +56,12 @@
               </li>
             </ul>
           </li>
-          <li class="has-submenu">
-            <a href="javascript:void(0);">Patients <i class="fas fa-chevron-down"></i></a>
+          <li *ngIf="this.userType == '2'" class="has-submenu">
+            <a href="javascript:void(0);"
+              >Patients <i class="fas fa-chevron-down"></i
+            ></a>
             <ul class="submenu">
-              <li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+              <li><a routerLink="/patient-dashboard">Patient Dashboard</a></li>
               <li class="has-submenu">
                 <a href="javascript:void(0);">Doctors</a>
                 <ul class="submenu inner-submenu">
@@ -92,7 +99,9 @@
             </ul>
           </li>
           <li class="has-submenu">
-            <a href="javascript:void(0);">Pharmacy <i class="fas fa-chevron-down"></i></a>
+            <a href="javascript:void(0);"
+              >Pharmacy <i class="fas fa-chevron-down"></i
+            ></a>
             <ul class="submenu">
               <li><a href="pharmacy-index.html">Pharmacy</a></li>
               <li><a href="pharmacy-details.html">Pharmacy Details</a></li>
@@ -108,7 +117,9 @@
             </ul>
           </li>
           <li class="has-submenu">
-            <a href="javascript:void(0);">Pages <i class="fas fa-chevron-down"></i></a>
+            <a href="javascript:void(0);"
+              >Pages <i class="fas fa-chevron-down"></i
+            ></a>
             <ul class="submenu">
               <li><a href="about-us.html">About Us</a></li>
               <li><a href="contact-us.html">Contact Us</a></li>
@@ -157,14 +168,6 @@
             </ul>
           </li>
           <li class="has-submenu">
-            <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
-            <ul class="submenu">
-              <li><a href="blog-list.html">Blog List</a></li>
-              <li><a href="blog-grid.html">Blog Grid</a></li>
-              <li><a href="blog-details.html">Blog Details</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
             <a href="#">Admin <i class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
               <li><a href="admin/index.html" target="_blank">Admin</a></li>
@@ -176,7 +179,9 @@
           <li class="searchbar">
             <a href="javascript:void(0);"><i class="feather-search"></i></a>
             <div class="togglesearch">
-              <form action="https://doccure.dreamstechnologies.com/html/template/search.html">
+              <form
+                action="https://doccure.dreamstechnologies.com/html/template/search.html"
+              >
                 <div class="input-group">
                   <input type="text" class="form-control" />
                   <button type="submit" class="btn">Search</button>
@@ -184,15 +189,299 @@
               </form>
             </div>
           </li>
-          <li class="login-link"><a href="login.html">Login / Signup</a></li>
+          <li class="login-link"><a routerLink="/log-in">Login / Signup</a></li>
         </ul>
       </div>
-      <ul class="nav header-navbar-rht">
+      <ul *ngIf="this.userType == '0'" class="nav header-navbar-rht">
         <li class="register-btn">
-          <a routerLink="/sign-up" class="btn reg-btn"><i class="feather-user"></i>Register</a>
+          <a routerLink="/sign-up" class="btn reg-btn"
+            ><i class="feather-user"></i>Register</a
+          >
         </li>
         <li class="register-btn">
-          <a routerLink="/sign-up" class="btn btn-primary log-btn"><i class="feather-lock"></i>Login</a>
+          <a routerLink="/log-in" class="btn btn-primary log-btn"
+            ><i class="feather-lock"></i>Login</a
+          >
+        </li>
+      </ul>
+      <ul *ngIf="this.userType == '1'" class="nav header-navbar-rht">
+        <li class="nav-item dropdown noti-nav view-cart-header me-3">
+          <a
+            href="#"
+            class="dropdown-toggle nav-link p-0 position-relative"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <small class="unread-msg1">7</small>
+          </a>
+          <div class="dropdown-menu notifications dropdown-menu-end">
+            <div class="shopping-cart">
+              <ul class="shopping-cart-items list-unstyled">
+                <li class="clearfix">
+                  <div class="close-icon">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                  </div>
+                  <a href="product-description.html"
+                    ><img
+                      class="avatar-img rounded"
+                      src="assets/img/products/product.jpg"
+                      alt="User Image"
+                  /></a>
+                  <a href="product-description.html" class="item-name"
+                    >Benzaxapine Croplex</a
+                  >
+                  <span class="item-price">$849.99</span>
+                  <span class="item-quantity">Quantity: 01</span>
+                </li>
+              </ul>
+              <div class="booking-summary pt-3">
+                <div class="booking-item-wrap">
+                  <ul class="booking-date">
+                    <li>Subtotal <span>$5,877.00</span></li>
+                    <li>Shipping <span>$25.00</span></li>
+                    <li>Tax <span>$0.00</span></li>
+                    <li>Total <span>$5.2555</span></li>
+                  </ul>
+                  <div class="booking-total">
+                    <ul class="booking-total-list text-align">
+                      <li>
+                        <div class="clinic-booking pt-3">
+                          <a class="apt-btn" href="cart.html">View Cart</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="clinic-booking pt-3">
+                          <a class="apt-btn" href="product-checkout.html"
+                            >Checkout</a
+                          >
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown noti-nav me-3 pe-0">
+          <a
+            href="#"
+            class="dropdown-toggle nav-link p-0"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fa-solid fa-bell"></i> <span class="badge">5</span>
+          </a>
+          <div class="dropdown-menu notifications dropdown-menu-end">
+            <div class="topnav-dropdown-header">
+              <span class="notification-title">Notifications</span>
+            </div>
+            <div class="noti-content">
+              <ul class="notification-list">
+                <li class="notification-message">
+                  <a href="#">
+                    <div class="notify-block d-flex">
+                      <span class="avatar">
+                        <img
+                          class="avatar-img"
+                          alt="Hendry Watt"
+                          src="assets/img/clients/client-02.jpg"
+                        />
+                      </span>
+                      <div class="media-body">
+                        <h6>
+                          Travis Tremble
+                          <span class="notification-time">12 Min Ago</span>
+                        </h6>
+                        <p class="noti-details">
+                          has booked her appointment to
+                          <span class="noti-title">Dr. Hendry Watt</span>
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown has-arrow logged-item">
+          <a
+            href="#"
+            class="dropdown-toggle nav-link"
+            data-bs-toggle="dropdown"
+          >
+            <span class="user-img">
+              <img
+                class="rounded-circle"
+                src="assets/img/doctors-dashboard/doctor-profile-img.jpg"
+                width="31"
+                alt="Darren Elder"
+              />
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end">
+            <div class="user-header">
+              <div class="avatar avatar-sm">
+                <img
+                  src="assets/img/doctors-dashboard/doctor-profile-img.jpg"
+                  alt="User Image"
+                  class="avatar-img rounded-circle"
+                />
+              </div>
+              <div class="user-text">
+                <h6>Dr Amit Yadav</h6>
+                <p class="text-success mb-0">Available</p>
+              </div>
+            </div>
+            <a class="dropdown-item" routerLink="/doctor-dashboard"
+              >Dashboard</a
+            >
+            <a class="dropdown-item" href="doctor-profile-settings.html"
+              >Profile Settings</a
+            >
+            <a class="dropdown-item" href="login.html">Logout</a>
+          </div>
+        </li>
+      </ul>
+      <ul *ngIf="this.userType == '2'" class="nav header-navbar-rht">
+        <li class="nav-item dropdown noti-nav view-cart-header me-3">
+          <a
+            href="#"
+            class="dropdown-toggle nav-link p-0 position-relative"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <small class="unread-msg1">7</small>
+          </a>
+          <div class="dropdown-menu notifications dropdown-menu-end">
+            <div class="shopping-cart">
+              <ul class="shopping-cart-items list-unstyled">
+                <li class="clearfix">
+                  <div class="close-icon">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                  </div>
+                  <a href="product-description.html"
+                    ><img
+                      class="avatar-img rounded"
+                      src="assets/img/products/product.jpg"
+                      alt="User Image"
+                  /></a>
+                  <a href="product-description.html" class="item-name"
+                    >Benzaxapine Croplex</a
+                  >
+                  <span class="item-price">$849.99</span>
+                  <span class="item-quantity">Quantity: 01</span>
+                </li>
+              </ul>
+              <div class="booking-summary pt-3">
+                <div class="booking-item-wrap">
+                  <ul class="booking-date">
+                    <li>Subtotal <span>$5,877.00</span></li>
+                    <li>Shipping <span>$25.00</span></li>
+                    <li>Tax <span>$0.00</span></li>
+                    <li>Total <span>$5.2555</span></li>
+                  </ul>
+                  <div class="booking-total">
+                    <ul class="booking-total-list text-align">
+                      <li>
+                        <div class="clinic-booking pt-3">
+                          <a class="apt-btn" href="cart.html">View Cart</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="clinic-booking pt-3">
+                          <a class="apt-btn" href="product-checkout.html"
+                            >Checkout</a
+                          >
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown noti-nav me-3 pe-0">
+          <a
+            href="#"
+            class="dropdown-toggle nav-link p-0"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fa-solid fa-bell"></i> <span class="badge">5</span>
+          </a>
+          <div class="dropdown-menu notifications dropdown-menu-end">
+            <div class="topnav-dropdown-header">
+              <span class="notification-title">Notifications</span>
+            </div>
+            <div class="noti-content">
+              <ul class="notification-list">
+                <li class="notification-message">
+                  <a href="#">
+                    <div class="notify-block d-flex">
+                      <span class="avatar">
+                        <img
+                          class="avatar-img"
+                          alt="Ruby perin"
+                          src="assets/img/clients/client-01.jpg"
+                        />
+                      </span>
+                      <div class="media-body">
+                        <h6>
+                          Travis Tremble
+                          <span class="notification-time">18.30 PM</span>
+                        </h6>
+                        <p class="noti-details">
+                          Sent a amount of $210 for his Appointment
+                          <span class="noti-title">Dr.Ruby perin </span>
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown has-arrow logged-item">
+          <a
+            href="#"
+            class="dropdown-toggle nav-link"
+            data-bs-toggle="dropdown"
+          >
+            <span class="user-img">
+              <img
+                class="rounded-circle"
+                src="assets/img/doctors-dashboard/profile-06.jpg"
+                width="31"
+                alt="Darren Elder"
+              />
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end">
+            <div class="user-header">
+              <div class="avatar avatar-sm">
+                <img
+                  src="assets/img/doctors-dashboard/profile-06.jpg"
+                  alt="User Image"
+                  class="avatar-img rounded-circle"
+                />
+              </div>
+              <div class="user-text">
+                <h6>Ambe</h6>
+                <p class="text-success mb-0">Available</p>
+              </div>
+            </div>
+            <a class="dropdown-item" routerLink="/patient-dashboard">Dashboard</a>
+            <a class="dropdown-item" href="profile-settings.html"
+              >Profile Settings</a
+            >
+            <a class="dropdown-item" href="login.html">Logout</a>
+          </div>
         </li>
       </ul>
     </nav>
