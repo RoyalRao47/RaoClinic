@@ -31,6 +31,7 @@
               "public/assets/css/bootstrap.min.css",
               "public/assets/plugins/fontawesome/css/fontawesome.min.css",
               "public/assets/plugins/fontawesome/css/all.min.css",
+              "public/assets/plugins/select2/css/select2.min.css",
               "public/assets/css/feather.css",
               "public/assets/css/bootstrap-datetimepicker.min.css",
               "public/assets/css/owl.carousel.min.css",
@@ -42,12 +43,14 @@
               "public/assets/js/jquery-3.7.1.min.js",
               "public/assets/js/bootstrap.bundle.min.js",
               "public/assets/js/feather.min.js",
+              "public/assets/plugins/theia-sticky-sidebar/ResizeSensor.js", 
+              "public/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js",
+              "public/assets/plugins/select2/js/select2.min.js",
               "public/assets/js/moment.min.js",
               "public/assets/js/bootstrap-datetimepicker.min.js",
               "public/assets/js/owl.carousel.min.js",
               "public/assets/js/slick.js",
               "public/assets/js/aos.js",
-             
               "public/assets/js/script.js",
               "public/assets/js/rocket-loader.min.js"
             ],
